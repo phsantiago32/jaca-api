@@ -1,7 +1,13 @@
-﻿namespace Jaca.Api.Models
+﻿using System;
+
+namespace Jaca.Api.Models
 {
     public class User
     {
+        public User()
+        {
+            this.Id = new Guid().ToString();
+        }
         public string Id { get; set; }
 
         public string Login { get; set; }
