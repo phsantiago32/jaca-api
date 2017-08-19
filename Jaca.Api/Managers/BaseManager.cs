@@ -64,5 +64,19 @@ namespace Jaca.Api.Managers
                 return this._promotionProgressRepository;
             }
         }
+
+        private IUserRepository _userRepository = null;
+        public IUserRepository UserRepository
+        {
+            get
+            {
+                if (this._userRepository == null)
+                {
+                    this._userRepository = GlobalFactory.Do<IUserRepository>();
+                }
+
+                return this._userRepository;
+            }
+        }
     }
 }

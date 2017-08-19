@@ -14,6 +14,9 @@ namespace Jaca.Api.Managers
             merchant.Id = Guid.NewGuid().ToString();
             this.MerchantRepository.CreateOrUpdate(merchant);
 
+            var newUser = new User { Login = merchant.Login, Password = merchant.Password };
+            this.UserRepository.CreateOrUpdate(newUser);
+
             response.StatusCode = System.Net.HttpStatusCode.Created;
             response.IsSuccess = true;
             return response;
