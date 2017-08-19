@@ -10,5 +10,7 @@ namespace Jaca.Api.Repository.Interfaces
         Promotion GetById(string id);
 
         ICollection<Promotion> GetPromotions(string merchantId);
+
+        void DeletePromotion(string id);
     }
 }

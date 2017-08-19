@@ -33,5 +33,10 @@ namespace Jaca.Api.Repository
         {
             return this.Collection.Find(x => x.MerchantId == merchantId).ToList();
         }
+
+        public void DeletePromotion(string id)
+        {
+            this.Collection.DeleteOne(x => x.Id == id);
+        }
     }
 }

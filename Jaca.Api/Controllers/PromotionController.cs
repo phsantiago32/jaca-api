@@ -6,11 +6,13 @@ namespace Jaca.Api.Controllers
 {
     public class PromotionController : BaseController
     {
-        public PromotionController() : base("merchant/{}promotions")
+        public PromotionController() : base("promotion")
         {
             Get("{id}", args => this.PromotionManager.GetPromotion(args.id));
 
             Post("", _ => PromotionManager.CreatePromotion(this.Bind<Promotion>()));
+
+            Get("delete/{id}", args => PromotionManager.DeletePromotion(args.id));
         }
     }
 }
