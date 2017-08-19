@@ -14,7 +14,6 @@ WORKDIR /temp
 RUN git clone ${repositoryUrl} .
 
 # Restore packages and publish app
-
 RUN dotnet restore
 RUN dotnet publish -c ${configuration}
 
