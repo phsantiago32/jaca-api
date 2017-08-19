@@ -15,6 +15,6 @@ namespace Jaca.Api.Models
 
         public int Total { get; set; }
 
-        public int Actual { get; set; }
+        public int Current { get; set; }
     }
 }
