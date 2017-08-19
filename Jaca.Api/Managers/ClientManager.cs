@@ -29,6 +29,7 @@ namespace Jaca.Api.Managers
 
             if (client != null)
             {
+                response.SuccessBody = client;
                 response.IsSuccess = true;
                 response.StatusCode = System.Net.HttpStatusCode.OK;
             }

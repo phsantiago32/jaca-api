@@ -30,6 +30,7 @@ namespace Jaca.Api.Managers
 
             if (promotionProgress != null)
             {
+                response.SuccessBody = promotionProgress;
                 response.IsSuccess = true;
                 response.StatusCode = System.Net.HttpStatusCode.OK;
             }
