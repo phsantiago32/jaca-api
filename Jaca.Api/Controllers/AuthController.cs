@@ -8,6 +8,8 @@ namespace Jaca.Api.Controllers
         public AuthController() : base("auth")
         {
             Get("{login?}/{password?}", args => this.AuthManager.IsValidLogin(args.login, args.password));
+
+            Get("recover/{login?}", args => this.AuthManager.RecoverLogin(args.login));
         }
     }
 }

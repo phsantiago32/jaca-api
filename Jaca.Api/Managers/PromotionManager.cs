@@ -8,7 +8,7 @@ namespace Jaca.Api.Managers
     public class PromotionManager : BaseManager, IPromotionManager
     {
 
-       public BaseResponse<object> CreatePromotion(Promotion promotion)
+        public BaseResponse<object> CreatePromotion(Promotion promotion)
         {
             var response = new BaseResponse<object>();
 
@@ -18,6 +18,28 @@ namespace Jaca.Api.Managers
             response.SuccessBody = promotion;
             response.IsSuccess = true;
             response.StatusCode = System.Net.HttpStatusCode.Created;
+
+            return response;
+        }
+
+        public BaseResponse<object> DeletePromotion(string id)
+        {
+            var response = new BaseResponse<object>();
+
+            try
+            {
+                this.PromotionRepository.DeletePromotion(id);
+
+                response.StatusCode = System.Net.HttpStatusCode.OK;
+                response.IsSuccess = true;
+
+            }
+            catch (Exception ex)
+            {
+                response.StatusCode = System.Net.HttpStatusCode.InternalServerError;
+
+                throw;
+            }
 
             return response;
         }
@@ -41,5 +63,46 @@ namespace Jaca.Api.Managers
 
             return response;
         }
+
+        public BaseResponse<object> GetPromotions(string merchantId)
+        {
+            var response = new BaseResponse<object>();
+
+            var promotion = this.PromotionRepository.GetPromotions(merchantId);
+
+            if (promotion != null)
+            {
+                response.SuccessBody = promotion;
+                response.StatusCode = System.Net.HttpStatusCode.OK;
+                response.IsSuccess = true;
+            }
+            else
+            {
+                response.StatusCode = System.Net.HttpStatusCode.NotFound;
+            }
+
+            return response;
+        }
+
+        public BaseResponse<object> GetPromotionsByCustomer(string customerId)
+        {
+            var response = new BaseResponse<object>();
+
+            var promotion = this.PromotionRepository.GetPromotionsByCustomer(customerId);
+
+            if (promotion != null)
+            {
+                response.SuccessBody = promotion;
+                response.StatusCode = System.Net.HttpStatusCode.OK;
+                response.IsSuccess = true;
+            }
+            else
+            {
+                response.StatusCode = System.Net.HttpStatusCode.NotFound;
+            }
+
+            return response;
+        }
+
     }
 }

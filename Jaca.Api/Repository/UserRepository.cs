@@ -1,4 +1,5 @@
-﻿using Jaca.Api.Models;
+﻿using System;
+using Jaca.Api.Models;
 using Jaca.Api.Repository.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -24,6 +25,11 @@ namespace Jaca.Api.Repository
                  new BsonDocument("_id", user.Id),
                  user,
                  new UpdateOptions { IsUpsert = true });
+        }
+
+        public User GetLogin(string login)
+        {
+            return this.Collection.Find(x => x.Login == login).FirstOrDefault();
         }
     }
 }

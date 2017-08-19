@@ -9,5 +9,7 @@
         public string Description { get; set; }
 
         public string MerchantId { get; set; }
+
+        public string CustomerId { get; set; }
     }
 }
