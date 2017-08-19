@@ -66,6 +66,20 @@ namespace Jaca.Api.Controllers
             }
         }
 
+        private IAuthenticationManager _authManager = null;
+        public IAuthenticationManager AuthManager
+        {
+            get
+            {
+                if (this._authManager == null)
+                {
+                    this._authManager = GlobalFactory.Do<IAuthenticationManager>();
+                }
+
+                return this._authManager;
+            }
+        }
+
         public object CreateJsonResponse(BaseResponse<object> response)
         {
             HttpStatusCode statusCode = GlobalFactory.Do<IEnumUtility>().Convert<HttpStatusCode>(response.StatusCode);

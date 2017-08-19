@@ -12,6 +12,8 @@
 
         public string Email { get; set; }
 
+        public string Login { get; set; }
+
         public string Longitude { get; set; }   
         
         public string Base64Logo { get; set; }
