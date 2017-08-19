@@ -1,7 +1,7 @@
 FROM microsoft/dotnet
 
 # Args / Env
-ARG repositoryUrl=https://github.com/psantiago32/jaca-web.git
+ARG repositoryUrl=https://github.com/psantiago32/jaca-api.git
 ARG configuration=Release
 ARG distFolder=Jaca.Api/bin/Release/netcoreapp1.1
 ARG apiPort=5000
