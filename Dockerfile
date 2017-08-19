@@ -14,7 +14,7 @@ WORKDIR /temp
 RUN git clone ${repositoryUrl} .
 
 # Restore packages and publish app
-WORKDIR /jaca-web
+
 RUN dotnet restore
 RUN dotnet publish -c ${configuration}
 
