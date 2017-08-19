@@ -84,5 +84,25 @@ namespace Jaca.Api.Managers
             return response;
         }
 
+        public BaseResponse<object> GetPromotionsByCustomer(string customerId)
+        {
+            var response = new BaseResponse<object>();
+
+            var promotion = this.PromotionRepository.GetPromotionsByCustomer(customerId);
+
+            if (promotion != null)
+            {
+                response.SuccessBody = promotion;
+                response.StatusCode = System.Net.HttpStatusCode.OK;
+                response.IsSuccess = true;
+            }
+            else
+            {
+                response.StatusCode = System.Net.HttpStatusCode.NotFound;
+            }
+
+            return response;
+        }
+
     }
 }

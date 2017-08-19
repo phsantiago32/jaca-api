@@ -38,5 +38,10 @@ namespace Jaca.Api.Repository
         {
             this.Collection.DeleteOne(x => x.Id == id);
         }
+
+        public ICollection<Promotion> GetPromotionsByCustomer(string customerId)
+        {
+            return this.Collection.Find(x => x.CustomerId == customerId).ToList();
+        }
     }
 }

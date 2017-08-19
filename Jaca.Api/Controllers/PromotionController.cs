@@ -13,6 +13,8 @@ namespace Jaca.Api.Controllers
             Post("", _ => PromotionManager.CreatePromotion(this.Bind<Promotion>()));
 
             Get("delete/{id}", args => PromotionManager.DeletePromotion(args.id));
+
+            Get("customer/{id}", args => PromotionManager.GetPromotionsByCustomer(args.id));
         }
     }
 }
