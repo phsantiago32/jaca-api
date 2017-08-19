@@ -7,14 +7,15 @@ namespace Jaca.Api.Managers
 {
     public class PromotionProgressManager : BaseManager, IPromotionProgressManager
     {
-        public BaseResponse<object> CreatePromotion(PromotionProgress promotion)
+        public BaseResponse<object> CreatePromotion(PromotionProgress promotionProgress)
         {
             var response = new BaseResponse<object>();
 
-            promotion.Id = Guid.NewGuid().ToString();
+            promotionProgress.Id = Guid.NewGuid().ToString();
 
-            this.PromotionProgressRepository.CreateOrUpdate(promotion);
+            this.PromotionProgressRepository.CreateOrUpdate(promotionProgress);
 
+            response.SuccessBody = promotionProgress;
             response.IsSuccess = true;
             response.StatusCode = System.Net.HttpStatusCode.Created;
 
@@ -29,6 +30,7 @@ namespace Jaca.Api.Managers
 
             if (promotionProgress != null)
             {
+                response.SuccessBody = promotionProgress;
                 response.IsSuccess = true;
                 response.StatusCode = System.Net.HttpStatusCode.OK;
             }

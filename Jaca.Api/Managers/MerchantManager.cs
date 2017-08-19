@@ -17,6 +17,7 @@ namespace Jaca.Api.Managers
             var newUser = new User { Login = merchant.Login, Password = merchant.Password };
             this.UserRepository.CreateOrUpdate(newUser);
 
+            response.SuccessBody = merchant;
             response.StatusCode = System.Net.HttpStatusCode.Created;
             response.IsSuccess = true;
             return response;

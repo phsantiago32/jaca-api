@@ -14,8 +14,10 @@ namespace Jaca.Api.Managers
             client.Id = Guid.NewGuid().ToString();
             this.ClientRepository.CreateOrUpdate(client);
 
+            response.SuccessBody = client;
             response.IsSuccess = true;
             response.StatusCode = System.Net.HttpStatusCode.Created;
+
             return response;
         }
 
@@ -27,6 +29,7 @@ namespace Jaca.Api.Managers
 
             if (client != null)
             {
+                response.SuccessBody = client;
                 response.IsSuccess = true;
                 response.StatusCode = System.Net.HttpStatusCode.OK;
             }
