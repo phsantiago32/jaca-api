@@ -12,6 +12,8 @@ namespace Jaca.Api.Controllers
             Get("{id}/promotions", args => this.PromotionManager.GetPromotions(args.id));
 
             Post("", _ => this.MerchantManager.CreateMerchant(this.Bind<Merchant>()));
+
+            Get("", _ => this.MerchantManager.GetAllMerchants());
         }
     }
 }

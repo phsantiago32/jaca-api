@@ -6,7 +6,7 @@ namespace Jaca.Api.Controllers
 {
     public class PromotionController : BaseController
     {
-        public PromotionController() : base("promotions")
+        public PromotionController() : base("merchant/{}promotions")
         {
             Get("{id}", args => this.PromotionManager.GetPromotion(args.id));
 
