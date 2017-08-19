@@ -13,6 +13,6 @@ namespace Jaca.Api.Managers.Interfaces
 
         BaseResponse<object> DeletePromotion(string id);
 
-        BaseResponse<object> GetPromotionsByCustomer(string customerId);
+        //BaseResponse<object> GetPromotionsByCustomer(string customerId);
     }
 }

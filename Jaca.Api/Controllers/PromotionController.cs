@@ -14,7 +14,7 @@ namespace Jaca.Api.Controllers
 
             Get("delete/{id}", args => PromotionManager.DeletePromotion(args.id));
 
-            Get("customer/{id}", args => PromotionManager.GetPromotionsByCustomer(args.id));
+            //Get("customer/{id}", args => PromotionManager.GetPromotionsByCustomer(args.id));
         }
     }
 }
