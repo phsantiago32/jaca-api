@@ -6,6 +6,7 @@ ARG configuration=Release
 ARG distFolder=Jaca.Api/bin/Release/netcoreapp1.1
 ARG apiPort=5000
 ARG appFile=Jaca.Api
+ARG appSln=Jaca.Api.sln
 
 # Change to temp workspace
 WORKDIR /temp
@@ -14,7 +15,7 @@ WORKDIR /temp
 RUN git clone ${repositoryUrl} .
 
 # Restore packages and publish app
-RUN dotnet restore
+RUN dotnet restore ${appSln}
 RUN dotnet publish -c ${configuration}
 
 # Copy files to /app
@@ -29,5 +30,6 @@ RUN rm -rf /temp
 
 # Run application
 WORKDIR /app
+RUN ls
 ENV appFile=$appFile
 ENTRYPOINT dotnet $appFile
