@@ -15,6 +15,7 @@ namespace Jaca.Api.Managers
             promotion.Id = Guid.NewGuid().ToString();
             this.PromotionRepository.CreateOrUpdate(promotion);
 
+            response.SuccessBody = promotion;
             response.IsSuccess = true;
             response.StatusCode = System.Net.HttpStatusCode.Created;
 

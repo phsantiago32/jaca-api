@@ -14,6 +14,7 @@ namespace Jaca.Api.Managers
             merchant.Id = Guid.NewGuid().ToString();
             this.MerchantRepository.CreateOrUpdate(merchant);
 
+            response.SuccessBody = merchant;
             response.StatusCode = System.Net.HttpStatusCode.Created;
             response.IsSuccess = true;
             return response;
