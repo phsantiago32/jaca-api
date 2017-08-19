@@ -28,5 +28,11 @@ namespace Jaca.Api.Repository
             var result = this.Collection.Find(x => x.Id == id).FirstOrDefault();
             return result;
         }
+
+        public List<Merchant> GetAllMerhants()
+        {
+            var result = this.Collection.Find(x => true);
+            return result.ToList();
+        } 
     }
 }

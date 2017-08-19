@@ -1,8 +1,5 @@
 ﻿using Jaca.Api.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Jaca.Api.Repository.Interfaces
 {
@@ -11,5 +8,7 @@ namespace Jaca.Api.Repository.Interfaces
         void CreateOrUpdate(Merchant merchant);
 
         Merchant GetById(string id);
+
+        List<Merchant> GetAllMerhants();
     }
 }

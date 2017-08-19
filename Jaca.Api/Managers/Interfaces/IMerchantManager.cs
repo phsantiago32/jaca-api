@@ -8,5 +8,7 @@ namespace Jaca.Api.Managers.Interfaces
         BaseResponse<object> GetMerchant(string id);
 
         BaseResponse<object> CreateMerchant(Merchant merchant);
+
+        BaseResponse<object> GetAllMerchants();
     }
 }

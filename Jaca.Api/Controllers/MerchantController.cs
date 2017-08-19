@@ -10,6 +10,8 @@ namespace Jaca.Api.Controllers
             Get("{id}", args => this.MerchantManager.GetMerchant(args.id));
 
             Post("", _ => this.MerchantManager.CreateMerchant(this.Bind<Merchant>()));
+
+            Get("", _ => this.MerchantManager.GetAllMerchants());
         }
     }
 }

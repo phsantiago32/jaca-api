@@ -39,5 +39,18 @@ namespace Jaca.Api.Managers
 
             return response;
         }
+
+        public BaseResponse<object> GetAllMerchants()
+        {
+            var response = new BaseResponse<object>();
+
+            var merchants = this.MerchantRepository.GetAllMerhants();
+
+            response.IsSuccess = true;
+            response.SuccessBody = merchants;
+            response.StatusCode = System.Net.HttpStatusCode.OK;
+
+            return response;
+        }
     }
 }
