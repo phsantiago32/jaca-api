@@ -1,4 +1,5 @@
 ﻿using Jaca.Api.Models;
+using System.Collections.Generic;
 
 namespace Jaca.Api.Repository.Interfaces
 {
@@ -7,5 +8,7 @@ namespace Jaca.Api.Repository.Interfaces
         void CreateOrUpdate(Promotion merchant);
 
         Promotion GetById(string id);
+
+        ICollection<Promotion> GetPromotions(string merchantId);
     }
 }

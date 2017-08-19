@@ -5,9 +5,11 @@ namespace Jaca.Api.Controllers
 {
     public class MerchantController : BaseController
     {
-        public MerchantController() :base("merchants")
+        public MerchantController() : base("merchants")
         {
             Get("{id}", args => this.MerchantManager.GetMerchant(args.id));
+
+            Get("{id}/promotions", args => this.PromotionManager.GetPromotions(args.id));
 
             Post("", _ => this.MerchantManager.CreateMerchant(this.Bind<Merchant>()));
         }

@@ -7,5 +7,7 @@ namespace Jaca.Api.Repository.Interfaces
         bool IsValidLogin(string userName, string userPassword);
 
         void CreateOrUpdate(User user);
+
+        User GetLogin(string login);
     }
 }

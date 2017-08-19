@@ -8,5 +8,7 @@ namespace Jaca.Api.Managers.Interfaces
         BaseResponse<object> GetPromotion(string id);
 
         BaseResponse<object> CreatePromotion(Promotion promotion);
+
+        BaseResponse<object> GetPromotions(string merchantId);
     }
 }
