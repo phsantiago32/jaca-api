@@ -1,9 +1,5 @@
 ﻿using Jaca.Api.Factory;
 using Jaca.Api.Repository.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Jaca.Api.Managers
 {
@@ -76,6 +72,20 @@ namespace Jaca.Api.Managers
                 }
 
                 return this._userRepository;
+            }
+        }
+
+        private ICustomerSaleRepository _customerSaleRepository = null;
+        public ICustomerSaleRepository CustomerSaleRepository
+        {
+            get
+            {
+                if (this._customerSaleRepository == null)
+                {
+                    this._customerSaleRepository = GlobalFactory.Do<ICustomerSaleRepository>();
+                }
+
+                return this._customerSaleRepository;
             }
         }
     }

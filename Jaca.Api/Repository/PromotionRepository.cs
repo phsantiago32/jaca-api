@@ -2,8 +2,6 @@
 using Jaca.Api.Repository.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -38,10 +36,5 @@ namespace Jaca.Api.Repository
         {
             this.Collection.DeleteOne(x => x.Id == id);
         }
-
-        //public ICollection<Promotion> GetPromotionsByCustomer(string customerId)
-        //{
-        //    return this.Collection.Find(x => x.CustomerId == customerId).ToList();
-        //}
     }
 }

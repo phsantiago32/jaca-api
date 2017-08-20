@@ -12,11 +12,11 @@ namespace Jaca.Api.Repository
 
         private const string COLLECTION_NAME = nameof(User);
 
-        public bool IsValidLogin(string userName, string userPassword)
+        public User GetUser(string userName, string userPassword)
         {
             var result = this.Collection.Find(x => x.Login == userName && x.Password == userPassword).FirstOrDefault();
 
-            return result != null;
+            return result;
         }
 
         public void CreateOrUpdate(User user)

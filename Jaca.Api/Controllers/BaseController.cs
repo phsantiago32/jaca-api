@@ -80,6 +80,20 @@ namespace Jaca.Api.Controllers
             }
         }
 
+        private ICustomerSaleManager _customerSaleManager = null;
+        public ICustomerSaleManager CustomerSaleManager
+        {
+            get
+            {
+                if (this._customerSaleManager == null)
+                {
+                    this._customerSaleManager = GlobalFactory.Do<ICustomerSaleManager>();
+                }
+
+                return this._customerSaleManager;
+            }
+        }
+
         public object CreateJsonResponse(BaseResponse<object> response)
         {
             HttpStatusCode statusCode = GlobalFactory.Do<IEnumUtility>().Convert<HttpStatusCode>(response.StatusCode);

@@ -12,7 +12,5 @@ namespace Jaca.Api.Repository.Interfaces
         ICollection<Promotion> GetPromotions(string merchantId);
 
         void DeletePromotion(string id);
-
-        //ICollection<Promotion> GetPromotionsByCustomer(string customerId);
     }
 }

@@ -6,7 +6,7 @@ namespace Jaca.Api.Models
     {
         public User()
         {
-            this.Id = new Guid().ToString();
+            this.Id = Guid.NewGuid().ToString();
         }
         public string Id { get; set; }
 
@@ -15,5 +15,7 @@ namespace Jaca.Api.Models
         public string Email { get; set; }
 
         public string Password { get; set; }
+
+        public string MerchantId { get; set; }
     }
 }

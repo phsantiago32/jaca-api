@@ -1,9 +1,9 @@
-﻿using System;
-using Jaca.Api.Managers.Interfaces;
-using Jaca.Api.Models.Response;
-using MimeKit;
-using MailKit.Net.Smtp;
+﻿using Jaca.Api.Managers.Interfaces;
 using Jaca.Api.Models;
+using Jaca.Api.Models.Response;
+using MailKit.Net.Smtp;
+using MimeKit;
+using System;
 
 namespace Jaca.Api.Managers
 {
@@ -13,10 +13,11 @@ namespace Jaca.Api.Managers
         {
             var response = new BaseResponse<object>();
 
-            var isValidLogin = this.UserRepository.IsValidLogin(login, password);
+            var user = this.UserRepository.GetUser(login, password);
 
-            if (isValidLogin)
+            if (user != null)
             {
+                response.SuccessBody = user;
                 response.StatusCode = System.Net.HttpStatusCode.OK;
                 response.IsSuccess = true;
 
